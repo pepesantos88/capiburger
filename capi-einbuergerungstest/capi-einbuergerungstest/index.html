@@ -1,66 +1,39 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f6f3ed" />
-    <title>CapiBürger — 17 answers to become a citizen</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="app-shell">
-      <header class="topbar">
-        <div class="brand"><span class="brand-dot"></span><span>Capi</span><small>Einbürgerungstest</small></div>
-        <button class="icon-button" id="settingsButton" aria-label="Settings">⚙</button>
-      </header>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f8f6f1">
+  <title>CapyBürger — 17 answers to become German</title>
+  <meta name="description" content="Practice the German citizenship test in German and English with Capy.">
+  <link rel="stylesheet" href="styles.css?v=20261003-2">
+</head>
+<body>
+<div class="shell">
+  <header class="top"><button class="brand" data-go="home" aria-label="CapyBürger home">CapyBürger<small>17 answers to become German.</small></button><div class="top-actions"><select id="statePicker" aria-label="Your federal state"></select><button id="settingsButton" class="icon-button" aria-label="Settings">⚙️</button></div></header>
+  <main>
+    <section class="screen active" id="homeScreen" aria-label="Home">
+      <p class="eyebrow" id="greeting">GOOD MORNING</p><h1>Little by little, you'll get there.</h1>
+      <section class="hero"><div class="hero-content"><p class="hero-label">YOUR DAILY FIVE</p><h2 id="heroHeading">Five questions. One more day.</h2><p id="heroSub">A tiny win for the streak.</p><div id="reminder" class="hero-reminder hidden">Capy is waiting for today's five.</div><button class="primary" data-go="daily" id="heroButton">Study now →</button></div><img src="assets/capy-neutral.png" alt="Capy the capybara in a red hoodie"></section>
+      <div class="stats"><div><b>🔥 <span id="streakCount">0</span></b><small>day streak</small></div><div><b>🎯 <span id="dailyAccuracy">—</span></b><small>daily accuracy</small></div><div><b>🏆 <span id="trophyCount">0</span></b><small>trophies</small></div></div>
+      <section class="mastered-card" aria-label="Question bank progress"><div class="mastered-top"><span class="eyebrow">QUESTIONS MASTERED · <span id="masteredState">Berlin</span></span><span id="masteredPct" class="mastered-percent">0%</span></div><strong id="masteredCount">0 / 310</strong><div id="masteredMeter" class="mastered-meter" role="progressbar" aria-label="Official questions mastered for Berlin" aria-valuemin="0" aria-valuemax="310" aria-valuenow="0"><span id="masteredFill"></span></div></section>
+      <div class="note-grid"><article class="note"><span class="eyebrow" id="wordLabel">WORD OF THE DAY</span><strong id="wordText"></strong><p id="wordMeaning"></p></article><article class="note"><span class="eyebrow">PHRASE OF THE DAY</span><strong id="phraseText"></strong><p id="phraseMeaning"></p></article></div>
+      <article class="note fact-card"><span class="eyebrow">GERMANY IN 30 SEC · <span id="factCategory"></span></span><strong id="factTitle"></strong><p id="factSummary"></p><button class="link-button" id="factReveal" aria-expanded="false">Tell me more →</button><p class="detail hidden" id="factDetail"></p></article>
+      <h2>Choose a topic</h2><div id="homeTopics" class="topics"></div>
+      <div class="teaser"><div><span class="eyebrow">MOCK EXAM</span><strong id="examTeaser">Your next goal: 33 / 33</strong><p>30 general + 3 from your state, drawn from the current study bank.</p></div><button class="small-button" data-go="exam">Open →</button></div>
+      <div class="teaser"><div><span class="eyebrow">THE EXTRA GAME</span><strong>🎲 Capy's Trivia Night</strong><p>Six slices of Germany. One very judgy capybara.</p></div><button class="small-button" data-go="trivia">Play →</button></div>
+    </section>
 
-      <main>
-        <section id="dashboardScreen" class="screen active">
-          <div id="dailyReminder" class="reminder-card hidden">
-            <div class="reminder-copy"><span class="eyebrow">DAILY MISSION</span><strong>One question. Don’t be lazy.</strong><span id="reminderText">Capi is waiting for you to study today.</span></div>
-            <button class="primary-button" data-action="start-study">Start</button>
-          </div>
-
-          <div class="hero-card">
-            <div class="hero-copy"><span class="eyebrow">GOOD MORNING, CITIZEN</span><h1>Let’s make sure Germany<br /><em>doesn’t catch you off guard.</em></h1><p id="capiLine">Your German future isn’t going to study itself, champ.</p><button class="dark-button" data-action="start-study">Study now <span>→</span></button></div>
-            <img src="assets/capi.png" alt="Capi, your study capybara" class="capi-hero" />
-          </div>
-
-          <div class="stats-grid">
-            <div class="stat-card"><span class="stat-icon">🔥</span><strong id="streakValue">0</strong><span>day streak</span></div>
-            <div class="stat-card"><span class="stat-icon">✓</span><strong id="correctValue">0%</strong><span>accuracy</span></div>
-            <div class="stat-card"><span class="stat-icon">⭐</span><strong id="favoriteValue">0</strong><span>favourites</span></div>
-          </div>
-
-          <div class="section-heading"><div><span class="eyebrow">YOUR PROGRESS</span><h2>A little every day</h2></div><span class="progress-label" id="progressLabel">0 / 20</span></div>
-          <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
-
-          <div class="section-heading category-heading"><div><span class="eyebrow">CHOOSE YOUR PATH</span><h2>Categories</h2></div></div>
-          <div class="category-grid" id="categoryGrid"></div>
-        </section>
-
-        <section id="studyScreen" class="screen">
-          <div class="study-header"><button class="back-button" data-action="dashboard">←</button><div><span class="eyebrow">STUDY MODE</span><strong id="studyCounter">Question</strong></div><button class="favorite-toggle" id="favoriteToggle">☆</button></div>
-          <div class="question-card"><div class="question-meta"><span id="questionCategory">POLITICS</span><span id="questionNumber">01</span></div><h2 id="questionText"></h2><div id="answerList" class="answer-list"></div><div id="answerFeedback" class="feedback hidden"></div></div>
-          <div class="capi-mini"><img src="assets/capi.png" alt="Capi" /><p id="studyCapiLine">Come on, use that brain.</p></div>
-        </section>
-
-        <section id="examScreen" class="screen">
-          <div class="study-header"><button class="back-button" data-action="dashboard">←</button><div><span class="eyebrow">MOCK EXAM</span><strong>33 questions</strong></div><span class="timer" id="examTimer">60:00</span></div>
-          <div class="exam-progress"><div id="examProgressBar"></div></div>
-          <div class="question-card"><div class="question-meta"><span id="examCategory">GENERAL</span><span id="examNumber">01 / 33</span></div><h2 id="examQuestionText"></h2><div id="examAnswerList" class="answer-list"></div><div id="examFeedback" class="feedback hidden"></div></div>
-          <button class="secondary-button hidden" id="finishExamButton">See result</button>
-        </section>
-
-        <section id="favoritesScreen" class="screen"><div class="page-heading"><span class="eyebrow">YOUR ARCHIVE</span><h1>Favourites</h1><p>The questions you said you would study “later”. Now you actually will.</p></div><div id="favoritesList" class="favorites-list"></div></section>
-      </main>
-
-      <nav class="bottom-nav"><button class="nav-item active" data-nav="dashboard"><span>⌂</span><small>Home</small></button><button class="nav-item" data-nav="study"><span>◉</span><small>Study</small></button><button class="nav-item" data-nav="exam"><span>▣</span><small>Mock exam</small></button><button class="nav-item" data-nav="favorites"><span>☆</span><small>Favourites</small></button></nav>
-    </div>
-    <script src="questions.js"></script>
-    <script src="app.js"></script>
-  </body>
+    <section class="screen" id="dailyScreen" aria-label="Daily practice"><p class="eyebrow">DAILY PRACTICE · YOUR FIVE</p><h1 id="dailyHeading">Question 1 of 5</h1><p id="dailySub" class="muted"></p><div id="dailyProgress" class="progress"></div><div id="dailyContent"></div></section>
+    <section class="screen" id="studyScreen" aria-label="Free study"><p class="eyebrow">FREE STUDY</p><h1 id="studyHeading">Another question awaits.</h1><p class="muted">Pick a topic. Answer, read why, then keep going.</p><div class="topics" id="studyTopics"></div><p class="eyebrow" id="studyCount"></p><div id="studyContent"></div></section>
+    <section class="screen" id="examScreen" aria-label="Mock exam"><p class="eyebrow">📝 MOCK EXAM</p><h1 id="examHeading">33 questions. One goal.</h1><p class="muted" id="examSub">Pass at 17/33. Aim for 33/33.</p><div id="examContent"></div></section>
+    <section class="screen" id="triviaScreen" aria-label="Trivia game"><p class="eyebrow">🎲 TRIVIA · THE EXTRA GAME</p><h1 id="triviaHeading">Capy's Trivia Night</h1><p class="muted" id="triviaSub">Six slices of Germany. Capy is watching.</p><div id="triviaContent"></div></section>
+  </main>
+  <nav class="nav" aria-label="Main navigation"><button data-go="home" class="active"><span data-nav-icon="home"></span>Home</button><button data-go="daily"><span data-nav-icon="daily"></span>Daily</button><button data-go="study"><span data-nav-icon="study"></span>Study</button><button data-go="exam"><span data-nav-icon="exam"></span>Exam</button><button data-go="trivia"><span data-nav-icon="trivia"></span>Trivia</button></nav>
+</div>
+<dialog id="welcomeDialog" class="settings welcome"><form id="welcomeForm"><img src="assets/capy-neutral.png" alt="Capy says hello"><h2>Hey, what should Capy call you?</h2><p class="muted">Your first name is enough. You can change it in Settings.</p><label>Your name<input id="welcomeName" name="name" type="text" maxlength="36" autocomplete="given-name" placeholder="Type your name" required></label><button class="primary save" type="submit">Let's go →</button></form></dialog>
+<dialog id="settingsDialog" class="settings"><form method="dialog"><div class="dialog-title"><h2>Settings</h2><button class="icon-button" aria-label="Close settings">✕</button></div><label>Your name<input id="nameSetting" type="text" maxlength="36" autocomplete="given-name" required></label><label>Federal state<select id="settingState"></select></label><label>Capy's humour<select id="humourSetting"><option value="classic">Classic</option><option value="spicy">Spicy</option></select></label><label class="check"><input type="checkbox" id="translationSetting" checked> Show English translations</label><label class="check"><input type="checkbox" id="reminderSetting" checked> Daily reminder on Home</label><p class="muted fineprint">Capy's reminder stays on Home until you finish today's five.</p><button class="primary save" id="saveSettings" type="submit">Save settings</button><button class="reset-progress" id="resetMastered" type="button">Reset question progress</button></form></dialog>
+<div id="toast" class="toast hidden" role="status"></div>
+<script src="data/official.js?v=20261003-2"></script><script src="data/trivia.js?v=20261003-2"></script><script src="data/culture.js?v=20261003-2"></script><script src="app.js?v=20261003-2"></script>
+</body>
 </html>
