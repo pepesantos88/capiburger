@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f3ed" />
+    <title>CapiBürger — 17 answers to become a citizen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand"><span class="brand-dot"></span><span>Capi</span><small>Einbürgerungstest</small></div>
+        <button class="icon-button" id="settingsButton" aria-label="Settings">⚙</button>
+      </header>
+
+      <main>
+        <section id="dashboardScreen" class="screen active">
+          <div id="dailyReminder" class="reminder-card hidden">
+            <div class="reminder-copy"><span class="eyebrow">DAILY MISSION</span><strong>One question. Don’t be lazy.</strong><span id="reminderText">Capi is waiting for you to study today.</span></div>
+            <button class="primary-button" data-action="start-study">Start</button>
+          </div>
+
+          <div class="hero-card">
+            <div class="hero-copy"><span class="eyebrow">GOOD MORNING, CITIZEN</span><h1>Let’s make sure Germany<br /><em>doesn’t catch you off guard.</em></h1><p id="capiLine">Your German future isn’t going to study itself, champ.</p><button class="dark-button" data-action="start-study">Study now <span>→</span></button></div>
+            <img src="assets/capi.png" alt="Capi, your study capybara" class="capi-hero" />
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card"><span class="stat-icon">🔥</span><strong id="streakValue">0</strong><span>day streak</span></div>
+            <div class="stat-card"><span class="stat-icon">✓</span><strong id="correctValue">0%</strong><span>accuracy</span></div>
+            <div class="stat-card"><span class="stat-icon">⭐</span><strong id="favoriteValue">0</strong><span>favourites</span></div>
+          </div>
+
+          <div class="section-heading"><div><span class="eyebrow">YOUR PROGRESS</span><h2>A little every day</h2></div><span class="progress-label" id="progressLabel">0 / 20</span></div>
+          <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+
+          <div class="section-heading category-heading"><div><span class="eyebrow">CHOOSE YOUR PATH</span><h2>Categories</h2></div></div>
+          <div class="category-grid" id="categoryGrid"></div>
+        </section>
+
+        <section id="studyScreen" class="screen">
+          <div class="study-header"><button class="back-button" data-action="dashboard">←</button><div><span class="eyebrow">STUDY MODE</span><strong id="studyCounter">Question</strong></div><button class="favorite-toggle" id="favoriteToggle">☆</button></div>
+          <div class="question-card"><div class="question-meta"><span id="questionCategory">POLITICS</span><span id="questionNumber">01</span></div><h2 id="questionText"></h2><div id="answerList" class="answer-list"></div><div id="answerFeedback" class="feedback hidden"></div></div>
+          <div class="capi-mini"><img src="assets/capi.png" alt="Capi" /><p id="studyCapiLine">Come on, use that brain.</p></div>
+        </section>
+
+        <section id="examScreen" class="screen">
+          <div class="study-header"><button class="back-button" data-action="dashboard">←</button><div><span class="eyebrow">MOCK EXAM</span><strong>33 questions</strong></div><span class="timer" id="examTimer">60:00</span></div>
+          <div class="exam-progress"><div id="examProgressBar"></div></div>
+          <div class="question-card"><div class="question-meta"><span id="examCategory">GENERAL</span><span id="examNumber">01 / 33</span></div><h2 id="examQuestionText"></h2><div id="examAnswerList" class="answer-list"></div><div id="examFeedback" class="feedback hidden"></div></div>
+          <button class="secondary-button hidden" id="finishExamButton">See result</button>
+        </section>
+
+        <section id="favoritesScreen" class="screen"><div class="page-heading"><span class="eyebrow">YOUR ARCHIVE</span><h1>Favourites</h1><p>The questions you said you would study “later”. Now you actually will.</p></div><div id="favoritesList" class="favorites-list"></div></section>
+      </main>
+
+      <nav class="bottom-nav"><button class="nav-item active" data-nav="dashboard"><span>⌂</span><small>Home</small></button><button class="nav-item" data-nav="study"><span>◉</span><small>Study</small></button><button class="nav-item" data-nav="exam"><span>▣</span><small>Mock exam</small></button><button class="nav-item" data-nav="favorites"><span>☆</span><small>Favourites</small></button></nav>
+    </div>
+    <script src="questions.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
