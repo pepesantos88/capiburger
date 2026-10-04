@@ -4,9 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#f8f6f1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="CapyBürger">
   <title>CapyBürger — 17 answers to become German</title>
   <meta name="description" content="Practice the German citizenship test in German and English with Capy.">
-  <link rel="stylesheet" href="styles.css?v=20261003-2">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="assets/capy-app-icon.png">
+  <link rel="icon" type="image/png" href="assets/capy-app-icon.png">
+  <link rel="stylesheet" href="styles.css?v=20261004-4">
 </head>
 <body>
 <div class="shell">
@@ -18,7 +24,7 @@
       <div class="stats"><div><b>🔥 <span id="streakCount">0</span></b><small>day streak</small></div><div><b>🎯 <span id="dailyAccuracy">—</span></b><small>daily accuracy</small></div><div><b>🏆 <span id="trophyCount">0</span></b><small>trophies</small></div></div>
       <section class="mastered-card" aria-label="Question bank progress"><div class="mastered-top"><span class="eyebrow">QUESTIONS MASTERED · <span id="masteredState">Berlin</span></span><span id="masteredPct" class="mastered-percent">0%</span></div><strong id="masteredCount">0 / 310</strong><div id="masteredMeter" class="mastered-meter" role="progressbar" aria-label="Official questions mastered for Berlin" aria-valuemin="0" aria-valuemax="310" aria-valuenow="0"><span id="masteredFill"></span></div></section>
       <div class="note-grid"><article class="note"><span class="eyebrow" id="wordLabel">WORD OF THE DAY</span><strong id="wordText"></strong><p id="wordMeaning"></p></article><article class="note"><span class="eyebrow">PHRASE OF THE DAY</span><strong id="phraseText"></strong><p id="phraseMeaning"></p></article></div>
-      <article class="note fact-card"><span class="eyebrow">GERMANY IN 30 SEC · <span id="factCategory"></span></span><strong id="factTitle"></strong><p id="factSummary"></p><button class="link-button" id="factReveal" aria-expanded="false">Tell me more →</button><p class="detail hidden" id="factDetail"></p></article>
+      <article class="note fact-card"><span class="eyebrow">GERMANY IN 30 SEC · <span id="factCategory"></span></span><strong id="factTitle"></strong><p id="factSummary"></p><button class="link-button" id="factReveal" aria-expanded="false">Tell me more →</button><p class="detail hidden" id="factDetail"></p><a class="fact-source hidden" id="factSource" target="_blank" rel="noopener noreferrer">Read source ↗</a></article>
       <h2>Choose a topic</h2><div id="homeTopics" class="topics"></div>
       <div class="teaser"><div><span class="eyebrow">MOCK EXAM</span><strong id="examTeaser">Your next goal: 33 / 33</strong><p>30 general + 3 from your state, drawn from the current study bank.</p></div><button class="small-button" data-go="exam">Open →</button></div>
       <div class="teaser"><div><span class="eyebrow">THE EXTRA GAME</span><strong>🎲 Capy's Trivia Night</strong><p>Six slices of Germany. One very judgy capybara.</p></div><button class="small-button" data-go="trivia">Play →</button></div>
@@ -34,6 +40,6 @@
 <dialog id="welcomeDialog" class="settings welcome"><form id="welcomeForm"><img src="assets/capy-neutral.png" alt="Capy says hello"><h2>Hey, what should Capy call you?</h2><p class="muted">Your first name is enough. You can change it in Settings.</p><label>Your name<input id="welcomeName" name="name" type="text" maxlength="36" autocomplete="given-name" placeholder="Type your name" required></label><button class="primary save" type="submit">Let's go →</button></form></dialog>
 <dialog id="settingsDialog" class="settings"><form method="dialog"><div class="dialog-title"><h2>Settings</h2><button class="icon-button" aria-label="Close settings">✕</button></div><label>Your name<input id="nameSetting" type="text" maxlength="36" autocomplete="given-name" required></label><label>Federal state<select id="settingState"></select></label><label>Capy's humour<select id="humourSetting"><option value="classic">Classic</option><option value="spicy">Spicy</option></select></label><label class="check"><input type="checkbox" id="translationSetting" checked> Show English translations</label><label class="check"><input type="checkbox" id="reminderSetting" checked> Daily reminder on Home</label><p class="muted fineprint">Capy's reminder stays on Home until you finish today's five.</p><button class="primary save" id="saveSettings" type="submit">Save settings</button><button class="reset-progress" id="resetMastered" type="button">Reset question progress</button></form></dialog>
 <div id="toast" class="toast hidden" role="status"></div>
-<script src="data/official.js?v=20261003-2"></script><script src="data/trivia.js?v=20261003-2"></script><script src="data/culture.js?v=20261003-2"></script><script src="app.js?v=20261003-2"></script>
+<script src="data/official.js?v=20261004-4"></script><script src="data/trivia.js?v=20261004-4"></script><script src="data/culture.js?v=20261004-4"></script><script src="app.js?v=20261004-4"></script>
 </body>
 </html>

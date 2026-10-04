@@ -1,0 +1,14 @@
+{
+  "id": "./",
+  "name": "CapyBürger",
+  "short_name": "CapyBürger",
+  "description": "German citizenship test practice with Capy.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f8f6f1",
+  "theme_color": "#f8f6f1",
+  "icons": [
+    {"src": "assets/capy-app-icon.png", "sizes": "1254x1254", "type": "image/png", "purpose": "any"}
+  ]
+}
